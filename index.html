@@ -1,29 +1,584 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WishCircle - Share Wishes, Spread Joy</title>
-    <meta name="description" content="Create and share wishlists with family and friends. Build your circle of wishes." />
-    <meta name="author" content="WishCircle" />
-
-    <meta property="og:title" content="WishCircle - Share Wishes, Spread Joy" />
-    <meta property="og:description" content="Create and share wishlists with family and friends. Build your circle of wishes." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@wishcircle" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optana - Share Wishes, Spread Joy</title>
+    <meta name="description" content="Create and share wishlists with family and friends. Build your circle of wishes.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  </head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-content">
+                <a href="#home" class="logo-link">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Optana</span>
+                </a>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+                <div class="nav-menu desktop-menu">
+                    <a href="#groups" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        <span>Groups</span>
+                    </a>
+                    <a href="#wishlists" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="8" y1="6" x2="21" y2="6"/>
+                            <line x1="8" y1="12" x2="21" y2="12"/>
+                            <line x1="8" y1="18" x2="21" y2="18"/>
+                            <line x1="3" y1="6" x2="3.01" y2="6"/>
+                            <line x1="3" y1="12" x2="3.01" y2="12"/>
+                            <line x1="3" y1="18" x2="3.01" y2="18"/>
+                        </svg>
+                        <span>Wishlists</span>
+                    </a>
+                    <a href="#settings" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6"/>
+                            <path d="M1 12h6m6 0h6"/>
+                        </svg>
+                        <span>Settings</span>
+                    </a>
+                    <button class="btn btn-primary">Get Started</button>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#groups" class="mobile-nav-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span>Groups</span>
+                </a>
+                <a href="#wishlists" class="mobile-nav-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="8" y1="6" x2="21" y2="6"/>
+                        <line x1="8" y1="12" x2="21" y2="12"/>
+                        <line x1="8" y1="18" x2="21" y2="18"/>
+                        <line x1="3" y1="6" x2="3.01" y2="6"/>
+                        <line x1="3" y1="12" x2="3.01" y2="12"/>
+                        <line x1="3" y1="18" x2="3.01" y2="18"/>
+                    </svg>
+                    <span>Wishlists</span>
+                </a>
+                <a href="#settings" class="mobile-nav-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v6m0 6v6"/>
+                        <path d="M1 12h6m6 0h6"/>
+                    </svg>
+                    <span>Settings</span>
+                </a>
+                <button class="btn btn-primary mobile-btn">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="floating-element" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+            <div class="floating-element" style="top: 40%; right: 20%; animation-delay: 1s;"></div>
+            <div class="floating-element" style="bottom: 40%; left: 25%; animation-delay: 2s;"></div>
+            <div class="floating-element" style="bottom: 20%; right: 10%; animation-delay: 0.5s;"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Share Wishes,<br>
+                    <span class="gradient-text">Spread Joy</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Create beautiful wishlists and share them with your loved ones. 
+                    Build your circle of wishes with family and friends.
+                </p>
+            </div>
+
+            <div class="hero-actions">
+                <button class="btn btn-primary btn-large">Create Your First Wishlist</button>
+                <button class="btn btn-secondary btn-large">Learn More</button>
+            </div>
+
+            <div class="hero-features">
+                <div class="feature-icon">
+                    <div class="icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <span>Family Groups</span>
+                </div>
+                <div class="feature-icon">
+                    <div class="icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="8" y1="6" x2="21" y2="6"/>
+                            <line x1="8" y1="12" x2="21" y2="12"/>
+                            <line x1="8" y1="18" x2="21" y2="18"/>
+                            <line x1="3" y1="6" x2="3.01" y2="6"/>
+                            <line x1="3" y1="12" x2="3.01" y2="12"/>
+                            <line x1="3" y1="18" x2="3.01" y2="18"/>
+                        </svg>
+                    </div>
+                    <span>Shared Lists</span>
+                </div>
+                <div class="feature-icon">
+                    <div class="icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <span>Wish Together</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="features-header">
+                <h2 class="section-title">
+                    Everything You Need to
+                    <span class="gradient-text">Share Wishes</span>
+                </h2>
+                <p class="section-subtitle">
+                    Optana brings families and friends together through the joy of giving and receiving. 
+                    Create meaningful connections around the things that matter most.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper gradient-1">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Family & Friend Groups</h3>
+                    <p class="feature-description">Organize your loved ones into meaningful groups and share wishlists that matter to everyone.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper gradient-2">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Beautiful Wishlists</h3>
+                    <p class="feature-description">Create stunning wishlists with photos, descriptions, and links. Make every wish come alive.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper gradient-3">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Smart Notifications</h3>
+                    <p class="feature-description">Stay connected with real-time updates when someone adds to a list or marks items as purchased.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper gradient-4">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="8" y1="6" x2="21" y2="6"/>
+                            <line x1="8" y1="12" x2="21" y2="12"/>
+                            <line x1="8" y1="18" x2="21" y2="18"/>
+                            <line x1="3" y1="6" x2="3.01" y2="6"/>
+                            <line x1="3" y1="12" x2="3.01" y2="12"/>
+                            <line x1="3" y1="18" x2="3.01" y2="18"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Easy Organization</h3>
+                    <p class="feature-description">Keep track of all your wishes with intuitive organization tools and privacy controls.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper gradient-5">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <path d="M4.93 4.93l4.24 4.24"/>
+                            <path d="M14.83 9.17l4.24-4.24"/>
+                            <path d="M14.83 14.83l4.24 4.24"/>
+                            <path d="M9.17 14.83l-4.24 4.24"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Privacy Controls</h3>
+                    <p class="feature-description">Choose what to share and with whom. Keep some wishes private or open to your circles.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper gradient-6">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6"/>
+                            <path d="M1 12h6m6 0h6"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Seamless Experience</h3>
+                    <p class="feature-description">Enjoy a smooth, responsive experience across all your devices with automatic syncing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Groups Section -->
+    <section id="groups" class="page-section">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">
+                    Your <span class="gradient-text">Groups</span>
+                </h1>
+                <p class="page-subtitle">
+                    Manage your family and friend groups, create new circles of wishes.
+                </p>
+                <button class="btn btn-primary">Create New Group</button>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon gradient-1">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge">Family</span>
+                    </div>
+                    <h3 class="card-title">Johnson Family</h3>
+                    <div class="card-stats">
+                        <span>8 members</span>
+                        <span>12 lists</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon gradient-2">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge">Friends</span>
+                    </div>
+                    <h3 class="card-title">College Friends</h3>
+                    <div class="card-stats">
+                        <span>6 members</span>
+                        <span>8 lists</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon gradient-3">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge">Friends</span>
+                    </div>
+                    <h3 class="card-title">Work Buddies</h3>
+                    <div class="card-stats">
+                        <span>4 members</span>
+                        <span>5 lists</span>
+                    </div>
+                </div>
+
+                <div class="card card-create">
+                    <div class="card-create-content">
+                        <div class="card-icon card-create-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 12l4 4 4-4"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-create-title">Create New Group</h3>
+                        <p class="card-create-text">Start a new circle of wishes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wishlists Section -->
+    <section id="wishlists" class="page-section">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">
+                    Your <span class="gradient-text">Wishlists</span>
+                </h1>
+                <p class="page-subtitle">
+                    Create and manage your personal and shared wishlists.
+                </p>
+                <button class="btn btn-primary">Create New Wishlist</button>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon gradient-1">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge shared">Shared</span>
+                    </div>
+                    <h3 class="card-title">Birthday Wishlist 2024</h3>
+                    <p class="card-group">Johnson Family</p>
+                    <div class="card-stats">
+                        <span>8 items</span>
+                        <button class="btn btn-ghost btn-small">View Details</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon gradient-2">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge shared">Shared</span>
+                    </div>
+                    <h3 class="card-title">Holiday Gift Ideas</h3>
+                    <p class="card-group">College Friends</p>
+                    <div class="card-stats">
+                        <span>12 items</span>
+                        <button class="btn btn-ghost btn-small">View Details</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon gradient-3">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge private">Private</span>
+                    </div>
+                    <h3 class="card-title">Home Improvement</h3>
+                    <p class="card-group">Personal</p>
+                    <div class="card-stats">
+                        <span>6 items</span>
+                        <button class="btn btn-ghost btn-small">View Details</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon gradient-4">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge shared">Shared</span>
+                    </div>
+                    <h3 class="card-title">Wedding Registry</h3>
+                    <p class="card-group">Johnson Family</p>
+                    <div class="card-stats">
+                        <span>25 items</span>
+                        <button class="btn btn-ghost btn-small">View Details</button>
+                    </div>
+                </div>
+
+                <div class="card card-create">
+                    <div class="card-create-content">
+                        <div class="card-icon card-create-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-create-title">Create New Wishlist</h3>
+                        <p class="card-create-text">Start adding your wishes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Settings Section -->
+    <section id="settings" class="page-section">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">
+                    <span class="gradient-text">Settings</span>
+                </h1>
+                <p class="page-subtitle">
+                    Customize your Optana experience and manage your preferences.
+                </p>
+            </div>
+
+            <div class="settings-grid">
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <div class="settings-icon gradient-1">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="4"/>
+                                <path d="M4.93 4.93l4.24 4.24"/>
+                                <path d="M14.83 9.17l4.24-4.24"/>
+                                <path d="M14.83 14.83l4.24 4.24"/>
+                                <path d="M9.17 14.83l-4.24 4.24"/>
+                            </svg>
+                        </div>
+                        <h2 class="settings-title">Profile Settings</h2>
+                    </div>
+                    <p class="settings-description">
+                        Manage your personal information and profile preferences.
+                    </p>
+                    <button class="btn btn-secondary">Edit Profile</button>
+                </div>
+
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <div class="settings-icon gradient-2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                            </svg>
+                        </div>
+                        <h2 class="settings-title">Notifications</h2>
+                    </div>
+                    <p class="settings-description">
+                        Control how and when you receive notifications about group activities.
+                    </p>
+                    <button class="btn btn-secondary">Manage Notifications</button>
+                </div>
+
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <div class="settings-icon gradient-3">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h2 class="settings-title">Privacy & Groups</h2>
+                    </div>
+                    <p class="settings-description">
+                        Set your privacy preferences and manage group access controls.
+                    </p>
+                    <button class="btn btn-secondary">Privacy Settings</button>
+                </div>
+
+                <div class="settings-card">
+                    <div class="settings-header">
+                        <div class="settings-icon gradient-4">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 1v6m0 6v6"/>
+                                <path d="M1 12h6m6 0h6"/>
+                            </svg>
+                        </div>
+                        <h2 class="settings-title">Account</h2>
+                    </div>
+                    <p class="settings-description">
+                        Manage your account settings, password, and data preferences.
+                    </p>
+                    <div class="settings-actions">
+                        <button class="btn btn-secondary">Account Settings</button>
+                        <button class="btn btn-outline">Export Data</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <span class="footer-logo-text">Optana</span>
+                    </div>
+                    <p class="footer-description">
+                        Bringing families and friends together through the joy of shared wishes. 
+                        Create, share, and celebrate the things that matter most.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h3 class="footer-links-title">Quick Links</h3>
+                    <ul class="footer-links-list">
+                        <li><a href="#groups" class="footer-link">My Groups</a></li>
+                        <li><a href="#wishlists" class="footer-link">Wishlists</a></li>
+                        <li><a href="#settings" class="footer-link">Settings</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3 class="footer-links-title">Support</h3>
+                    <ul class="footer-links-list">
+                        <li><a href="#" class="footer-link">Help Center</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-bottom-text">
+                    Made with <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; color: #FFB066;">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg> for families and friends everywhere.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
